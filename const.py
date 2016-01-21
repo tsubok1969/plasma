@@ -1,0 +1,17 @@
+LVEL = 299.
+ECHG = 1.6e-19
+
+EPSL = 1.0
+PRMB = 1.0
+
+MILI = 1.0e-3
+MEGA = 1.0e+6
+NANO = 1.0e-9
+KILO = 1.0e+3
+GIGA = 1.0e+9
+MICR = 1.0e-6
+
+PMAS = 1.0e-27
+EMAS = 1.0e-31
+
+BOLZ = 1.0
