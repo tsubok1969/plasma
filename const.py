@@ -1,17 +1,21 @@
-LVEL = 299.
-ECHG = 1.6e-19
+class Const():
+    def __init__(self):
+        self.LVEL = 299792458.
+        self.ECHG = 1.6e-19
 
-EPSL = 1.0
-PRMB = 1.0
+        self.EPSL = 8.85418782e-12
+        self.PRMB = 1./(self.LVEL**2*self.EPSL)
 
-MILI = 1.0e-3
-MEGA = 1.0e+6
-NANO = 1.0e-9
-KILO = 1.0e+3
-GIGA = 1.0e+9
-MICR = 1.0e-6
+        self.MILI = 1.0e-3
+        self.MEGA = 1.0e+6
+        self.NANO = 1.0e-9
+        self.KILO = 1.0e+3
+        self.GIGA = 1.0e+9
+        self.MICR = 1.0e-6
 
-PMAS = 1.0e-27
-EMAS = 1.0e-31
+        self.PMAS = 1.6726219e-27
+        self.EMAS = 9.10938356e-31
 
-BOLZ = 1.0
+        self.BOLZ = 1.38064852e-23
+
+

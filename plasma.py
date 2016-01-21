@@ -1,4 +1,4 @@
-import const
+from const import Const
 
 def ev2vel(species, energy):
 
