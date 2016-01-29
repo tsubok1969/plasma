@@ -7,6 +7,7 @@ class Calc():
         self.EPSL = 8.85418782e-12
         self.PRMB = 1./(self.LVEL**2*self.EPSL)
 
+        self.CENT = 1.0e-2
         self.MILI = 1.0e-3
         self.MEGA = 1.0e+6
         self.NANO = 1.0e-9
@@ -46,7 +47,7 @@ class Calc():
 
     def plasma_frequency(self, species, rho):
         mass = self.mass(species)
-        return self.EPSL*rho/mass/self.ECHG**2
+        return math.sqrt(rho*self.ECHG**2/mass/self.EPSL)
 
     def cyclotron_frequency(self, species, mag):
         mass = self.mass(species)
