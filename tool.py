@@ -60,3 +60,13 @@ class Calc():
     def thermal_velocity(self, species, eth):
         mass = self.mass(species)
         return math.sqrt(eth/mass)
+
+    def mag_pressure(self, mag):
+        return 0.5*mag**2/self.PRMB
+
+    def plasma_beta(self, pre, mag):
+        return self.ev2joule(pre)/self.mag_pressure(mag)
+
+    def omegap2density(self, species, wp):
+        mass = self.mass(species)
+        return wp**2*self.EPSL*mass/self.ECHG**2
