@@ -15,7 +15,7 @@ elif quant == 2:
     species, mag = map(float, input("Input the plasma species (0:electron 1:proton) and the magnetic field magnitude (nT)\n").split())
     cfreq = c.cyclotron_frequency(species, mag*c.NANO) / c.KILO
     print('Omega_c = %f kHz' % cfreq)
-else quant == 3:
+elif quant == 3:
     species, rho = map(float, input("Input the plasma species (0:electron 1:proton) and its number density (/cc)\n").split())
     pfreq = c.plasma_frequency(species, rho/c.CENT**3) / c.KILO
     print('Omega_p = %f kHz' % pfreq)
