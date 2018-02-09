@@ -3,7 +3,7 @@ from tool import Calc
 c = Calc()
 
 print ("Choose the quantity:")
-print ("1: Alfven velocity\n2: Cyclotron frequency\n3: Plasma frequency\n4: Velocity to eV")
+print ("1: Alfven velocity\n2: Cyclotron frequency\n3: Plasma frequency\n4: Velocity to eV\n")
 quant = input()
 quant = int(quant)
 
@@ -20,7 +20,7 @@ elif quant == 3:
     pfreq = c.plasma_frequency(species, rho/c.CENT**3) / c.KILO
     print('Omega_p = %f kHz' % pfreq)
 else:
-    species, vel = map(float, input("Input the plasma species (0:electron 1:proton) and the velocity (km/s)").split())
+    species, vel = map(float, input("Input the plasma species (0:electron 1:proton) and the velocity (km/s)\n").split())
     ene = c.vel2joule(species, vel*c.KILO)
     ev = c.joule2ev(ene) / c.KILO
     print('Energy = %f keV' % ev)
