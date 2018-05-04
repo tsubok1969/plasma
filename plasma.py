@@ -3,7 +3,6 @@ from tool import Calc
 c = Calc()
 
 bool = True
-
 while bool:
     print ("Choose the quantity:")
     print ("1: Alfven velocity\n2: Cyclotron frequency\n3: Plasma frequency\n4: Velocity to eV")
@@ -32,4 +31,3 @@ while bool:
     cont = int(input())
     if cont==1:
         bool = False
-
