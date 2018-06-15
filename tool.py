@@ -1,4 +1,4 @@
-import math
+import numpy as np
 class Calc():
     def __init__(self):
         self.LVEL = 299792458.
@@ -33,21 +33,21 @@ class Calc():
 
     def joule2vel(self, species, energy):
         mass = self.mass(species)
-        return math.sqrt(2.0*energy/mass)
+        return np.sqrt(2.0*energy/mass)
 
     def vel2joule(self, species, velocity):
         mass = self.mass(species)
         return 0.5*mass*velocity**2
 
     def lorentz_factor(self, vel):
-        return 1./math.sqrt(1. - vel**2/self.LVEL**2)
+        return 1./np.sqrt(1. - vel**2/self.LVEL**2)
 
     def alfven_velocity(self,rho,bmag):
-        return bmag/math.sqrt(self.PRMB*self.PMAS*rho)
+        return bmag/np.sqrt(self.PRMB*self.PMAS*rho)
 
     def plasma_frequency(self, species, rho):
         mass = self.mass(species)
-        return math.sqrt(rho*self.ECHG**2/mass/self.EPSL)
+        return np.sqrt(rho*self.ECHG**2/mass/self.EPSL)
 
     def cyclotron_frequency(self, species, mag):
         mass = self.mass(species)
@@ -59,7 +59,7 @@ class Calc():
 
     def thermal_velocity(self, species, eth):
         mass = self.mass(species)
-        return math.sqrt(eth/mass)
+        return np.sqrt(eth/mass)
 
     def mag_pressure(self, mag):
         return 0.5*mag**2/self.PRMB
