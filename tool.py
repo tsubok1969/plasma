@@ -20,23 +20,23 @@ class Calc():
 
         self.BOLZ = 1.38064852e-23
 
-    def mass(self, species):
-        if species == 0:
-            return self.EMAS
-        else:
+    def mass(self, proton=True):
+        if proton:
             return self.PMAS
+        else:
+            return self.EMAS
 
     def joule2ev(self, energy):
         return energy/self.ECHG
     def ev2joule(self, evolt):
         return evolt*self.ECHG
 
-    def joule2vel(self, species, energy):
-        mass = self.mass(species)
+    def joule2vel(self, energy, proton=True):
+        mass = self.mass(proton)
         return np.sqrt(2.0*energy/mass)
 
-    def vel2joule(self, species, velocity):
-        mass = self.mass(species)
+    def vel2joule(self, velocity, proton=True):
+        mass = self.mass(proton)
         return 0.5*mass*velocity**2
 
     def lorentz_factor(self, vel):
@@ -45,20 +45,20 @@ class Calc():
     def alfven_velocity(self,rho,bmag):
         return bmag/np.sqrt(self.PRMB*self.PMAS*rho)
 
-    def plasma_frequency(self, species, rho):
-        mass = self.mass(species)
+    def plasma_frequency(self, rho, proton=True):
+        mass = self.mass(proton)
         return np.sqrt(rho*self.ECHG**2/mass/self.EPSL)
 
-    def cyclotron_frequency(self, species, mag):
-        mass = self.mass(species)
+    def cyclotron_frequency(self, mag, proton=True):
+        mass = self.mass(proton)
         return self.ECHG*mag/mass
 
-    def inertial_length(self, species, rho):
-        freq = plasma_frequency(species, rho)
+    def inertial_length(self, rho, proton=True):
+        freq = plasma_frequency(rho, proton)
         return self.LVEL/freq
 
-    def thermal_velocity(self, species, eth):
-        mass = self.mass(species)
+    def thermal_velocity(self, eth, proton=True):
+        mass = self.mass(proton)
         return np.sqrt(eth/mass)
 
     def mag_pressure(self, mag):
@@ -67,6 +67,6 @@ class Calc():
     def plasma_beta(self, pre, mag):
         return self.ev2joule(pre)/self.mag_pressure(mag)
 
-    def omegap2density(self, species, wp):
-        mass = self.mass(species)
+    def omegap2density(self, wp, proton=True):
+        mass = self.mass(proton)
         return wp**2*self.EPSL*mass/self.ECHG**2
