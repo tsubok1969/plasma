@@ -53,8 +53,8 @@ class Calc():
         mass = self.mass(proton)
         return self.ECHG*mag/mass
 
-    def inertial_length(self, species, rho):
-        freq = self.plasma_frequency(species, rho)
+    def inertial_length(self, rho, proton=True):
+        freq = self.plasma_frequency(rho, proton)
         return self.LVEL/freq
 
     def thermal_velocity(self, eth, proton=True):
