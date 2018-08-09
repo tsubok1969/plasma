@@ -54,7 +54,7 @@ class Calc():
         return self.ECHG*mag/mass
 
     def inertial_length(self, species, rho):
-        freq = plasma_frequency(species, rho)
+        freq = self.plasma_frequency(species, rho)
         return self.LVEL/freq
 
     def thermal_velocity(self, species, eth):
