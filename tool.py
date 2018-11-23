@@ -64,6 +64,9 @@ class Calc():
     def mag_pressure(self, mag):
         return 0.5*mag**2/self.PRMB
 
+    def thermal_pressure(self, rho, temperature):
+        return self.BOLZ*rho*temperature
+
     def plasma_beta(self, pre, mag):
         return self.ev2joule(pre)/self.mag_pressure(mag)
 
